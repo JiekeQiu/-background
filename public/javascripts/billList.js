@@ -12,7 +12,6 @@ $(() => {
                 })
             })
         };
-
         (async () => {
             let data = await getList();
             // console.log(data);
@@ -47,10 +46,31 @@ $(() => {
             })
         })
     };
-
+    let autoLogin = ()=>{
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                type: 'POST',
+                headers:{
+                    token:localStorage.getItem('token')
+                },
+                url: "http://localhost:3000/setting/autoLogin",
+                success(data) {
+                    resolve(data);
+                    console.log(data);
+                    if(data==true){
+                        xuanran();
+                    }else{
+                        location.href='login.html';
+                    }
+                }
+            })
+        });
+    };
+    autoLogin();
     (async () => {
+        // console.log(isLogin);
         let data = await getList();
-        // console.log(data);
+        console.log(data);
         let html = data.map((item) => {
             return `
                 <tr>

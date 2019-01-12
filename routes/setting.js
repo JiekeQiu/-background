@@ -8,6 +8,7 @@ const {
     update,
     del
 } = require("../libs/mongo.js");
+let token = require("../libs/token.js")
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     res.send('respond with a resource');
@@ -54,7 +55,7 @@ router.get('/billUpdate', async (req, res, next) => {
     } = req.query
     await update('list', { _id: ObjectId(id) }, {
         name: val1,
-        asupplierge:val2,
+        asupplierge: val2,
         price: val3,
         pay: val4,
         time: val5
@@ -66,7 +67,7 @@ router.get('/updata', async (req, res, next) => {
     let {
         _id
     } = req.query
-    let data = await del('list', {_id: ObjectId(_id)});
+    let data = await del('list', { _id: ObjectId(_id) });
     res.send('succes');
 });
 // 查（登录）
@@ -80,11 +81,20 @@ router.post('/login', async (req, res, next) => {
     } : {})
     // console.log(user,mima);
     if (data.length == 0) {
-        res.send('失败');
+        res.send({status:'fail'});
     } else if (data[0].mima == mima) {
-        res.send('成功');
+        res.send({
+            status:'success',
+            token: token.createToken({
+                user,
+                mima
+            },60)
+        });
     } else {
-        res.send('失败');
+        res.send({status:'fail'});
     }
+});
+router.post('/autoLogin', async (req, res, next) =>{
+    res.send(token.checkToken(req.headers.token)); 
 });
 module.exports = router;

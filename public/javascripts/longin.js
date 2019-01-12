@@ -20,8 +20,9 @@ $(() => {
         let user = $("#user").val();
         let mima = $("#mima").val();
         let data = await login(user, mima);
-        if (data === '成功') {
+        if (data.status === 'success') {
             console.log('登录成功');
+            localStorage.setItem('token',data.token);
             location.href='index.html';
         } else {
             console.log('登录失败');

@@ -395,5 +395,6 @@ input[type='reset']:active, input[type='reset']:focus, .providerView a:hover, .p
     vertical-align:middle;
 }
 #file{position:absolute; right:0; top:0; font-size:100px; opacity:0; filter:alpha(opacity=0);}
-
-
+#providerTable tr td{
+    width: 300px;
+}
