@@ -4,7 +4,7 @@ $(() => {
         return new Promise((resolve, reject) => {
             $.ajax({
                 type: "POST",
-                url: "http://localhost:3000/setting/login",
+                url: "http://39.105.154.233:3000/setting/login",
                 data: {
                     user,
                     mima

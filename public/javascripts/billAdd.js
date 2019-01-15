@@ -3,7 +3,7 @@ $('#tianjia').on('click', () => {
         return new Promise((resolve, reject) => {
             $.ajax({
                 type: 'GET',
-                url: "http://localhost:3000/setting/billAdd",
+                url: "http://39.105.154.233:3000/setting/billAdd",
                 data: {
                     name,
                     asupplierge,

@@ -8,14 +8,14 @@ var fileNode = document.getElementById("file");
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     console.log(JSON.parse(xmlhttp.responseText))
                     let data = JSON.parse(xmlhttp.responseText);
-                    document.getElementById("img").src = `http://localhost:3000//${data.file.filename}`
+                    document.getElementById("img").src = `http://39.105.154.233:3000//${data.file.filename}`
                 }
             }
             //构造form数据 你可以用它传输文件流 它是基于form-data的传输方案
             var data = new FormData();
             // 单图上传，默认选第一张，如果是多图的话，就要for循环遍历fileNode.files数组，并全部append到data里面传输
             data.append("abc",fileNode.files[0])
-            xmlhttp.open("post", "http://localhost:3000/users/upload", true);
+            xmlhttp.open("post", "http://39.105.154.233:3000/users/upload", true);
 			//不要缓存  
 			//xmlhttp.setRequestHeader("If-Modified-Since", "0");  
 			//提交请求  

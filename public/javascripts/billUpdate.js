@@ -11,7 +11,7 @@ $(() => {
             return new Promise((resolve, reject) => {
                 $.ajax({
                     type: 'GET',
-                    url: "http://localhost:3000/setting/billList",
+                    url: "http://39.105.154.233:3000/setting/billList",
                     success(data) {
                         resolve(data);
                         // console.log(data);
@@ -27,7 +27,7 @@ $(() => {
                         return new Promise((resolve, reject) => {
                             $.ajax({
                                 type: 'GET',
-                                url: "http://localhost:3000/setting/billUpdate",
+                                url: "http://39.105.154.233:3000/setting/billUpdate",
                                 data: {
                                     id,
                                     val1,

@@ -4,7 +4,7 @@ $(() => {
             return new Promise((resolve, reject) => {
                 $.ajax({
                     type: 'GET',
-                    url: "http://localhost:3000/setting/billList",
+                    url: "http://39.105.154.233:3000/setting/billList",
                     success(data) {
                         resolve(data);
                         // console.log(data);
@@ -38,7 +38,7 @@ $(() => {
         return new Promise((resolve, reject) => {
             $.ajax({
                 type: 'GET',
-                url: "http://localhost:3000/setting/billList",
+                url: "http://39.105.154.233:3000/setting/billList",
                 success(data) {
                     resolve(data);
                     // console.log(data);
@@ -53,7 +53,7 @@ $(() => {
                 headers:{
                     token:localStorage.getItem('token')
                 },
-                url: "http://localhost:3000/setting/autoLogin",
+                url: "http://39.105.154.233:3000/setting/autoLogin",
                 success(data) {
                     resolve(data);
                     console.log(data);
@@ -91,7 +91,7 @@ $(() => {
         // 点击获取修改id
         $("#providerTable ").on('click', '.updateBill', function () {
             // console.log($(this).parent().parent().find('td').eq(0).html());
-            location.href = "http://localhost:3000/billUpdate.html?id=" + $(this).parent().parent().find('td').eq(0).html();
+            location.href = "http://39.105.154.233:3000/billUpdate.html?id=" + $(this).parent().parent().find('td').eq(0).html();
         });
         remove();
     })();
@@ -102,7 +102,7 @@ $(() => {
             return new Promise((resolve, reject) => {
                 $.ajax({
                     type: 'GET',
-                    url: "http://localhost:3000/setting/billList",
+                    url: "http://39.105.154.233:3000/setting/billList",
                     data: {
                         name
                     },
@@ -136,7 +136,7 @@ $(() => {
             // 点击修改获取id
             $("#providerTable").on('click', '.updateBill', function () {
                 // console.log($(this).parent().parent().find('td').eq(0).html());
-                location.href = "http://localhost:3000/billUpdate.html?id=" + $(this).parent().parent().find('td').eq(0).html();
+                location.href = "http://39.105.154.233:3000/billUpdate.html?id=" + $(this).parent().parent().find('td').eq(0).html();
             });
             for (var i = 0; i < data.length; i++) {
                 // console.log(vall);
@@ -156,7 +156,7 @@ $(() => {
                 return new Promise((resolve, reject) => {
                     $.ajax({
                         type: 'GET',
-                        url: "http://localhost:3000/setting/updata",
+                        url: "http://39.105.154.233:3000/setting/updata",
                         data: {
                             _id
                         },
